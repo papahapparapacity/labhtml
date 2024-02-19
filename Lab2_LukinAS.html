@@ -1,0 +1,162 @@
+<html>
+<head>
+    <style >
+* {
+  box-sizing: border-box;
+}
+
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+
+ol li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+ol li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+
+ol li:hover {
+  background: #ddd;
+}
+
+
+ol li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+
+ol li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #696464;
+  color: white;
+}
+
+
+.header {
+  background-color: #575353;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+  
+  
+}
+
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 70%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  font-style:italic;
+}
+
+
+.addBtn {
+  padding: 10px;
+  width: 120px;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  border-color: #f44336;
+  border: 8px;
+}
+.addBtn1 {
+  padding: 10px;
+  width: 120px;
+  background: #e24e4e;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  border-color: #f44336;
+  border: 8px;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+.text{
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 24px;
+}
+    </style>
+</head>
+<body>
+    <div id="myDIV" class="header">
+        <h2>Cписок дел</h2>
+        <input type="text" id="myInput" placeholder="Что сделать...">
+        <span onclick="newElement()" class="addBtn">Создать</span>
+        <span onclick="newElement()"  class="addBtn1" >Отчистить все</span>
+      </div>
+      
+      <ol id="myUL">
+        <li>Почесать кошку <sub>от 24.04.23</sub><button type="button">❌</button></li>
+        <li class="checked">Полить картошку <sub>от 21.02.23</sub><button type="button">❌</button></li>
+        <li>Сложить в лукошко <sub>от 26.06.23</sub><button type="button">❌</button></li>
+        
+      </ol>
+      <hr>
+  <footer >
+    <p class="text"> Copyright ©</p>
+  </footer>
+</body>
+</html>
