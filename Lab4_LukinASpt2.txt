@@ -1,0 +1,88 @@
+
+
+Tusk 1
+
+
+function* random(n, m) {
+  while (true) {
+    yield Math.floor(Math.random() * (m - n + 1) + n);
+  }
+}
+
+function* padovanSequence() {
+  let a = 1, b = 1, c = 1;
+  while (true) {
+    yield a;
+    let next = a + b;
+    a = b;
+    b = c;
+    c = next;
+  }
+}
+
+function* primes() {
+  let num = 2;
+  const isPrime = num => {
+    for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return num > 1;
+  };
+  while (true) {
+    if (isPrime(num)) {
+      yield num;
+    }
+    num++;
+  }
+}
+
+const randGen = random(1, 100);
+console.log(randGen.next().value); 
+
+const padovanGen = padovanSequence();
+for (let i = 0; i < 10; i++) {
+  console.log(padovanGen.next().value); 
+}
+
+const primeGen = primes();
+for (let i = 0; i < 10; i++) {
+  console.log(primeGen.next().value);
+}
+
+
+function countOccurrences(str, target) {
+  const map = new Map();
+  for (let char of str) {
+    if (map.has(char)) {
+      map.set(char, map.get(char) + 1);
+    } else {
+      map.set(char, 1);
+    }
+  }
+  return map.get(target) || 0;
+}
+
+function getPrime(n) {
+  function isPrime(num) {
+    for (let i = 2, sqrt = BigInt(Math.sqrt(num)); i <= sqrt; i = i + 1n) {
+      if (num % i === 0n) {
+        return false;
+      }
+    }
+    return num > 1n;
+  }
+  let count = 0;
+  let number = 1n;
+  while (count < n) {
+    number = number + 1n;
+    if (isPrime(number)) {
+      count++;
+    }
+  }
+  return number;
+}
+
+console.log(countOccurrences('hello', 'l')); 
+console.log(getPrime(10)); 
